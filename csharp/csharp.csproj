@@ -61,10 +61,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApprovalTest.cs" />
+    <Compile Include="ItemStrategy\Strategies\ConjuredItemStrategy.cs" />
     <Compile Include="GildedRose.cs" />
     <Compile Include="GildedRoseTest.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="ItemStrategy\Strategies\VariableItemStrategy.cs" />
+    <Compile Include="ItemStrategy\ItemStrategy.cs" />
+    <Compile Include="ItemStrategy\Strategies\AgedItemStrategy.cs" />
+    <Compile Include="ItemStrategy\Strategies\LegendaryItemStrategy.cs" />
+    <Compile Include="ItemStrategy\Strategies\RegularItemStrategy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
