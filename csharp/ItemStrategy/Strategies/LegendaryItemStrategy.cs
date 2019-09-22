@@ -1,6 +1,6 @@
-﻿using csharp.Models;
+﻿using csharp.Strategy;
 
-namespace csharp.ItemStrategy.Strategies
+namespace csharp.Strategy.Strategies
 {
     public class LegendaryItemStrategy :  IBaseStrategy
     {

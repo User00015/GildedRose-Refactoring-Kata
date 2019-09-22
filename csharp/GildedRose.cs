@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using csharp.ItemStrategy.Strategies;
+using csharp.Strategy.Strategies;
+using csharp.Strategy;
 
 namespace csharp
 {
@@ -20,7 +21,7 @@ namespace csharp
         {
             foreach (var item in Items)
             {
-                var updateSolver = new Models.ItemStrategy(item);
+                var updateSolver = new ItemStrategy(item);
 
                 /*
                  * First iteration: Simple chain of if else to supply each strategy in turn.

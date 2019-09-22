@@ -4,25 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp.Models
+namespace csharp.Strategy
 {
     public class ItemStrategy 
     {
-        public Item Item { get; set; }
+        public ItemStrategy(Item item)
+        {
+            _item = item;
+        }
+
+        private Item _item { get; set; }
 
         public IBaseStrategy Strategy { get; set; }
 
         public void UpdateQuality()
         {
-            Strategy.UpdateQuality(Item);
+            Strategy.UpdateQuality(_item);
 
-            Item.SellIn -= 1;
+            _item.SellIn -= 1;
         }
 
-        public ItemStrategy(Item item)
-        {
-            Item = item;
-        }
     }
 
     public interface IBaseStrategy
