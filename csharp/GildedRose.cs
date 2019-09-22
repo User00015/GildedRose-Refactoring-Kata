@@ -21,7 +21,7 @@ namespace csharp
         {
             foreach (var item in Items)
             {
-                var updateSolver = new ItemStrategy(item);
+                var updateItem = new ItemStrategy(item);
 
                 /*
                  * First iteration: Simple chain of if else to supply each strategy in turn.
@@ -39,23 +39,23 @@ namespace csharp
                 switch (item.Name)
                 {
                     case AgedBrie:
-                        updateSolver.Strategy = new AgedItemStrategy();
+                        updateItem.Strategy = new AgedItemStrategy();
                         break;
                     case Sulfuras:
-                        updateSolver.Strategy = new LegendaryItemStrategy();
+                        updateItem.Strategy = new LegendaryItemStrategy();
                         break;
                     case ConcertTickets:
-                        updateSolver.Strategy = new VariableItemStrategy();
+                        updateItem.Strategy = new VariableItemStrategy();
                         break;
                     case Conjured:
-                        updateSolver.Strategy = new ConjuredItemStrategy();
+                        updateItem.Strategy = new ConjuredItemStrategy();
                         break;
                     default:
-                        updateSolver.Strategy = new RegularItemStrategy();
+                        updateItem.Strategy = new RegularItemStrategy();
                         break;
                 }
 
-                updateSolver.UpdateQuality();
+                updateItem.UpdateQuality();
             }
         }
     }

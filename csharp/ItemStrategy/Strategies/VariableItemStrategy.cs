@@ -8,7 +8,7 @@ namespace csharp.Strategy.Strategies
         public int MinQuality { get; } = 0;
         public void UpdateQuality(Item item)
         {
-            item.Quality = GetRate(item);
+            item.Quality = GetQuality(item);
 
             if (item.Quality < MinQuality)
             {
@@ -16,7 +16,7 @@ namespace csharp.Strategy.Strategies
             }
         }
 
-        private int GetRate(Item item)
+        private int GetQuality(Item item)
         {
             if (item.SellIn <= 0) return 0;
             if (item.SellIn <= 5) return item.Quality + 3;
