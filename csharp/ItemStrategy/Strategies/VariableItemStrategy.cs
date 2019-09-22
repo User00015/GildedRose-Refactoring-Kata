@@ -1,31 +1,27 @@
-﻿using csharp.Models;
+﻿using System.Linq;
+using csharp.Models;
 
 namespace csharp.ItemStrategy.Strategies
 {
     public class VariableItemStrategy : IBaseStrategy
     {
+        public int MinQuality { get; } = 0;
         public void UpdateQuality(Item item)
         {
-            if (item.Quality < 50)
-            {
-                item.Quality += 1;
+            item.Quality = GetRate(item);
 
-                if (item.Quality < 50)
-                {
-                    if (item.SellIn <= 0)
-                    {
-                        item.Quality = 0;
-                    }
-                    else if (item.SellIn <= 5)
-                    {
-                        item.Quality += 2;
-                    }
-                    else if (item.SellIn <= 10)
-                    {
-                        item.Quality += 1;
-                    }
-                }
+            if (item.Quality < MinQuality)
+            {
+                item.Quality = MinQuality;
             }
+        }
+
+        private int GetRate(Item item)
+        {
+            if (item.SellIn <= 0) return 0;
+            if (item.SellIn <= 5) return item.Quality + 3;
+            if (item.SellIn <= 10) return item.Quality + 2;
+            return item.Quality + 1;
         }
     }
 }

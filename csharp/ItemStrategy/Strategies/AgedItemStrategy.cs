@@ -2,18 +2,17 @@
 
 namespace csharp.ItemStrategy.Strategies
 {
-    public class AgedItemStrategy :  IBaseStrategy
+    public class AgedItemStrategy : IBaseStrategy
     {
+        public int MaxQuality { get; } = 50;
+
         public void UpdateQuality(Item item)
         {
-            if (item.Quality < 50)
-            {
-                item.Quality += 1;
+            item.Quality += item.SellIn <= 0 ? 2 : 1;
 
-                if (item.SellIn <= 0 && item.Quality < 50)
-                {
-                    item.Quality += 1;
-                }
+            if (item.Quality > MaxQuality)
+            {
+                item.Quality = MaxQuality;
             }
         }
     }
